@@ -6,7 +6,8 @@ CREATE DATABASE comics_blog;
 #####
 #
 #
-# TODO: Split into separate files and put relationship descriptions into comments
+# TODO: Split into separate files and put relationship descriptions into comments?
+# This is probably only necessary if I break joins out into many tables.
 #
 #
 #####
@@ -65,15 +66,15 @@ CREATE TABLE issues (
   date_last_updated TIMESTAMP,
   deck VARCHAR,
   description TEXT,
-  issue_number INT4,
+  issue_number INT8,
   volume_id INT
 );
 
 CREATE TABLE join_issues (
-  join_reason CHAR 30, # e.g. "issues_died_in"
-  join_entity CHAR 40, # e.g. "issues" or "characters"
+  join_reason CHAR 30,
+  join_entity CHAR 40,
   join_id INT,
-  issue_id
+  issue_id INT
 );
 
 # table and POLYMORPHIC JOIN table for people: has-many to has-many, multiple join opportunities
@@ -89,12 +90,19 @@ CREATE TABLE join_people (
   person_id INT
 );
 
--- CREATE TABLE concepts (
---   ID INT PRIMARY KEY,
---   aliases VARCHAR 400,
---   count_of_isssue_appearances INT8,
---   date_last_updated TIMESTAMP
--- );
+CREATE TABLE concepts (
+  id INT PRIMARY KEY,
+  name CHAR 100,
+  aliases VARCHAR 400,
+  cover_date TIMESTAMP,
+  date_last_updated TIMESTAMP,
+  deck VARCHAR,
+  description TEXT,
+  count_of_isssue_appearances INT8,
+  publisher_id INT,
+  first_appeared_in_issue INT8,
+  start_year INT4
+);
 
 
 CREATE TABLE movies (
@@ -118,41 +126,6 @@ CREATE TABLE join_movies (
   movie_id INT
 );
 
-CREATE TABLE issues (
-  id INT PRIMARY KEY,
-  name CHAR 100,
-  aliases VARCHAR 400,
-  cover_date TIMESTAMP,
-  date_last_updated TIMESTAMP,
-  deck VARCHAR,
-  description TEXT,
-  issue_number INT8,
-  volume_id
-);
-
-CREATE TABLE join_issues (
-  join_reason CHAR 30,
-  join_entity CHAR 40,
-  join_id INT,
-  issue_id INT
-);
-
--- CREATE TABLE locations (
---   id INT PRIMARY KEY
--- );
---
--- CREATE TABLE objects (
---   id INT PRIMARY KEY
--- );
-
-CREATE TABLE origins (
-  id INT PRIMARY KEY
-);
-
--- CREATE TABLE promos (
---   id INT PRIMARY KEY
--- );
-
 CREATE TABLE publishers (
   id INT PRIMARY KEY,
   name: CHAR 100,
@@ -165,7 +138,6 @@ CREATE TABLE publishers (
   location_state CHAR 100
 );
 
-###### problem with URL format ######
 CREATE TABLE series (
   id INT PRIMARY KEY,
   count_of_episodes INT8,
@@ -232,3 +204,20 @@ CREATE TABLE images (
   image_type CHAR 30,
   image_url VARCHAR # This needs to move to AWS S3 quick or I'll get rate-limited
 );
+
+# Will support these in the future
+-- CREATE TABLE locations (
+--   id INT PRIMARY KEY
+-- );
+--
+-- CREATE TABLE objects (
+--   id INT PRIMARY KEY
+-- );
+
+-- CREATE TABLE origins (
+--   id INT PRIMARY KEY
+-- );
+
+-- CREATE TABLE promos (
+--   id INT PRIMARY KEY
+-- );
