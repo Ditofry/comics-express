@@ -61,20 +61,20 @@ module.exports = {
   addImage: addImage
 };
 
-function getTypeList(req, res, next) {
-  db.any('SELECT * FROM whatever')
-    .then(function (data) {
-      res.status(200)
-        .json({
-          status: 'success',
-          data: data,
-          message: 'Retrieved all of whatever'
-        });
-    })
-    .catch(function (err) {
-      return next(err);
-    });
-}
+// function getTypeList(req, res, next) {
+//   db.any('SELECT * FROM whatever')
+//     .then(function (data) {
+//       res.status(200)
+//         .json({
+//           status: 'success',
+//           data: data,
+//           message: 'Retrieved all of whatever'
+//         });
+//     })
+//     .catch(function (err) {
+//       return next(err);
+//     });
+// }
 
 function getCharacter(characterAttrs) {
   var q = 'SELECT * FROM characters, p.name AS publisher_name'
@@ -114,185 +114,185 @@ function getCharacterPowers(characterAttrs) {
     });
 }
 
-function getCharacterList(req, res, next) {
-  db.any('SELECT * FROM whatever')
-    .then(function (data) {
-      res.status(200)
-        .json({
-          status: 'success',
-          data: data,
-          message: 'Retrieved all of whatever'
-        });
-    })
-    .catch(function (err) {
-      return next(err);
-    });
-}
+// function getCharacterList(req, res, next) {
+//   db.any('SELECT * FROM whatever')
+//     .then(function (data) {
+//       res.status(200)
+//         .json({
+//           status: 'success',
+//           data: data,
+//           message: 'Retrieved all of whatever'
+//         });
+//     })
+//     .catch(function (err) {
+//       return next(err);
+//     });
+// }
 
-function getIssueList(req, res, next) {
-  db.any('SELECT * FROM whatever')
-    .then(function (data) {
-      res.status(200)
-        .json({
-          status: 'success',
-          data: data,
-          message: 'Retrieved all of whatever'
-        });
-    })
-    .catch(function (err) {
-      return next(err);
-    });
-}
+// function getIssueList(req, res, next) {
+//   db.any('SELECT * FROM whatever')
+//     .then(function (data) {
+//       res.status(200)
+//         .json({
+//           status: 'success',
+//           data: data,
+//           message: 'Retrieved all of whatever'
+//         });
+//     })
+//     .catch(function (err) {
+//       return next(err);
+//     });
+// }
 
-function getCharacters(req, res, next) {
-  db.any('SELECT * FROM whatever')
-    .then(function (data) {
-      res.status(200)
-        .json({
-          status: 'success',
-          data: data,
-          message: 'Retrieved all of whatever'
-        });
-    })
-    .catch(function (err) {
-      return next(err);
-    });
-}
+// function getCharacters(req, res, next) {
+//   db.any('SELECT * FROM whatever')
+//     .then(function (data) {
+//       res.status(200)
+//         .json({
+//           status: 'success',
+//           data: data,
+//           message: 'Retrieved all of whatever'
+//         });
+//     })
+//     .catch(function (err) {
+//       return next(err);
+//     });
+// }
 
-function getCharacter(req, res, next) {
-  db.any('SELECT * FROM whatever')
-    .then(function (data) {
-      res.status(200)
-        .json({
-          status: 'success',
-          data: data,
-          message: 'Retrieved all of whatever'
-        });
-    })
-    .catch(function (err) {
-      return next(err);
-    });
-}
+// function getCharacter(req, res, next) {
+//   db.any('SELECT * FROM whatever')
+//     .then(function (data) {
+//       res.status(200)
+//         .json({
+//           status: 'success',
+//           data: data,
+//           message: 'Retrieved all of whatever'
+//         });
+//     })
+//     .catch(function (err) {
+//       return next(err);
+//     });
+// }
 
-function getIssues(req, res, next) {
-  db.any('SELECT * FROM whatever')
-    .then(function (data) {
-      res.status(200)
-        .json({
-          status: 'success',
-          data: data,
-          message: 'Retrieved all of whatever'
-        });
-    })
-    .catch(function (err) {
-      return next(err);
-    });
-}
+// function getIssues(req, res, next) {
+//   db.any('SELECT * FROM whatever')
+//     .then(function (data) {
+//       res.status(200)
+//         .json({
+//           status: 'success',
+//           data: data,
+//           message: 'Retrieved all of whatever'
+//         });
+//     })
+//     .catch(function (err) {
+//       return next(err);
+//     });
+// }
 
-function getIssue(req, res, next) {
-  db.any('SELECT * FROM whatever')
-    .then(function (data) {
-      res.status(200)
-        .json({
-          status: 'success',
-          data: data,
-          message: 'Retrieved all of whatever'
-        });
-    })
-    .catch(function (err) {
-      return next(err);
-    });
-}
+// function getIssue(req, res, next) {
+//   db.any('SELECT * FROM whatever')
+//     .then(function (data) {
+//       res.status(200)
+//         .json({
+//           status: 'success',
+//           data: data,
+//           message: 'Retrieved all of whatever'
+//         });
+//     })
+//     .catch(function (err) {
+//       return next(err);
+//     });
+// }
 
-function getMovies(req, res, next) {
-  db.any('SELECT * FROM whatever')
-    .then(function (data) {
-      res.status(200)
-        .json({
-          status: 'success',
-          data: data,
-          message: 'Retrieved all of whatever'
-        });
-    })
-    .catch(function (err) {
-      return next(err);
-    });
-}
+// function getMovies(req, res, next) {
+//   db.any('SELECT * FROM whatever')
+//     .then(function (data) {
+//       res.status(200)
+//         .json({
+//           status: 'success',
+//           data: data,
+//           message: 'Retrieved all of whatever'
+//         });
+//     })
+//     .catch(function (err) {
+//       return next(err);
+//     });
+// }
 
-function getMovie(req, res, next) {
-  db.any('SELECT * FROM whatever')
-    .then(function (data) {
-      res.status(200)
-        .json({
-          status: 'success',
-          data: data,
-          message: 'Retrieved all of whatever'
-        });
-    })
-    .catch(function (err) {
-      return next(err);
-    });
-}
+// function getMovie(req, res, next) {
+//   db.any('SELECT * FROM whatever')
+//     .then(function (data) {
+//       res.status(200)
+//         .json({
+//           status: 'success',
+//           data: data,
+//           message: 'Retrieved all of whatever'
+//         });
+//     })
+//     .catch(function (err) {
+//       return next(err);
+//     });
+// }
 
-function getCharacterGenderBreakdown(req, res, next) {
-  db.any('SELECT * FROM whatever')
-    .then(function (data) {
-      res.status(200)
-        .json({
-          status: 'success',
-          data: data,
-          message: 'Retrieved all of whatever'
-        });
-    })
-    .catch(function (err) {
-      return next(err);
-    });
-}
+// function getCharacterGenderBreakdown(req, res, next) {
+//   db.any('SELECT * FROM whatever')
+//     .then(function (data) {
+//       res.status(200)
+//         .json({
+//           status: 'success',
+//           data: data,
+//           message: 'Retrieved all of whatever'
+//         });
+//     })
+//     .catch(function (err) {
+//       return next(err);
+//     });
+// }
 
-function getNumCharactersByPublisher(req, res, next) {
-  db.any('SELECT * FROM whatever')
-    .then(function (data) {
-      res.status(200)
-        .json({
-          status: 'success',
-          data: data,
-          message: 'Retrieved all of whatever'
-        });
-    })
-    .catch(function (err) {
-      return next(err);
-    });
-}
+// function getNumCharactersByPublisher(req, res, next) {
+//   db.any('SELECT * FROM whatever')
+//     .then(function (data) {
+//       res.status(200)
+//         .json({
+//           status: 'success',
+//           data: data,
+//           message: 'Retrieved all of whatever'
+//         });
+//     })
+//     .catch(function (err) {
+//       return next(err);
+//     });
+// }
 
-function getEpisodeProbOfCharacterDeath(req, res, next) {
-  db.any('SELECT * FROM whatever')
-    .then(function (data) {
-      res.status(200)
-        .json({
-          status: 'success',
-          data: data,
-          message: 'Retrieved all of whatever'
-        });
-    })
-    .catch(function (err) {
-      return next(err);
-    });
-}
+// function getEpisodeProbOfCharacterDeath(req, res, next) {
+//   db.any('SELECT * FROM whatever')
+//     .then(function (data) {
+//       res.status(200)
+//         .json({
+//           status: 'success',
+//           data: data,
+//           message: 'Retrieved all of whatever'
+//         });
+//     })
+//     .catch(function (err) {
+//       return next(err);
+//     });
+// }
 
-function getIssueProbOfCharacterDeath(req, res, next) {
-  db.any('SELECT * FROM whatever')
-    .then(function (data) {
-      res.status(200)
-        .json({
-          status: 'success',
-          data: data,
-          message: 'Retrieved all of whatever'
-        });
-    })
-    .catch(function (err) {
-      return next(err);
-    });
-}
+// function getIssueProbOfCharacterDeath(req, res, next) {
+//   db.any('SELECT * FROM whatever')
+//     .then(function (data) {
+//       res.status(200)
+//         .json({
+//           status: 'success',
+//           data: data,
+//           message: 'Retrieved all of whatever'
+//         });
+//     })
+//     .catch(function (err) {
+//       return next(err);
+//     });
+// }
 
 function getAverageNumEnemies(characterAttrs) {
   var q = 'SELECT AVG(num_enemies) '
@@ -318,80 +318,80 @@ function getAverageNumEnemies(characterAttrs) {
     });
 }
 
-function getCharsMoreHatedThanLoved(req, res, next) {
-  db.any('SELECT * FROM whatever')
-    .then(function (data) {
-      res.status(200)
-        .json({
-          status: 'success',
-          data: data,
-          message: 'Retrieved all of whatever'
-        });
-    })
-    .catch(function (err) {
-      return next(err);
-    });
-}
+// function getCharsMoreHatedThanLoved(req, res, next) {
+//   db.any('SELECT * FROM whatever')
+//     .then(function (data) {
+//       res.status(200)
+//         .json({
+//           status: 'success',
+//           data: data,
+//           message: 'Retrieved all of whatever'
+//         });
+//     })
+//     .catch(function (err) {
+//       return next(err);
+//     });
+// }
 
-function getCultClassicCharacters(req, res, next) {
-  db.any('SELECT * FROM whatever')
-    .then(function (data) {
-      res.status(200)
-        .json({
-          status: 'success',
-          data: data,
-          message: 'Retrieved all of whatever'
-        });
-    })
-    .catch(function (err) {
-      return next(err);
-    });
-}
+// function getCultClassicCharacters(req, res, next) {
+//   db.any('SELECT * FROM whatever')
+//     .then(function (data) {
+//       res.status(200)
+//         .json({
+//           status: 'success',
+//           data: data,
+//           message: 'Retrieved all of whatever'
+//         });
+//     })
+//     .catch(function (err) {
+//       return next(err);
+//     });
+// }
 
-function getRebelCharacters(req, res, next) {
-  db.any('SELECT * FROM whatever')
-    .then(function (data) {
-      res.status(200)
-        .json({
-          status: 'success',
-          data: data,
-          message: 'Retrieved all of whatever'
-        });
-    })
-    .catch(function (err) {
-      return next(err);
-    });
-}
+// function getRebelCharacters(req, res, next) {
+//   db.any('SELECT * FROM whatever')
+//     .then(function (data) {
+//       res.status(200)
+//         .json({
+//           status: 'success',
+//           data: data,
+//           message: 'Retrieved all of whatever'
+//         });
+//     })
+//     .catch(function (err) {
+//       return next(err);
+//     });
+// }
 
-function getLadyRebels(req, res, next) {
-  db.any('SELECT * FROM whatever')
-    .then(function (data) {
-      res.status(200)
-        .json({
-          status: 'success',
-          data: data,
-          message: 'Retrieved all of whatever'
-        });
-    })
-    .catch(function (err) {
-      return next(err);
-    });
-}
+// function getLadyRebels(req, res, next) {
+//   db.any('SELECT * FROM whatever')
+//     .then(function (data) {
+//       res.status(200)
+//         .json({
+//           status: 'success',
+//           data: data,
+//           message: 'Retrieved all of whatever'
+//         });
+//     })
+//     .catch(function (err) {
+//       return next(err);
+//     });
+// }
 
-function getGentlemanRebels(req, res, next) {
-  db.any('SELECT * FROM whatever')
-    .then(function (data) {
-      res.status(200)
-        .json({
-          status: 'success',
-          data: data,
-          message: 'Retrieved all of whatever'
-        });
-    })
-    .catch(function (err) {
-      return next(err);
-    });
-}
+// function getGentlemanRebels(req, res, next) {
+//   db.any('SELECT * FROM whatever')
+//     .then(function (data) {
+//       res.status(200)
+//         .json({
+//           status: 'success',
+//           data: data,
+//           message: 'Retrieved all of whatever'
+//         });
+//     })
+//     .catch(function (err) {
+//       return next(err);
+//     });
+// }
 
 function addCharacter(characterAttrs) {
   // TODO: This isn't the best place for this concern, I don't think...
@@ -411,65 +411,65 @@ function addCharacter(characterAttrs) {
     });
 }
 
-function addPower(req, res, next) {
-  db.any('SELECT * FROM whatever')
-    .then(function (data) {
-      res.status(200)
-        .json({
-          status: 'success',
-          data: data,
-          message: 'Retrieved all of whatever'
-        });
-    })
-    .catch(function (err) {
-      return next(err);
-    });
-}
+// function addPower(req, res, next) {
+//   db.any('SELECT * FROM whatever')
+//     .then(function (data) {
+//       res.status(200)
+//         .json({
+//           status: 'success',
+//           data: data,
+//           message: 'Retrieved all of whatever'
+//         });
+//     })
+//     .catch(function (err) {
+//       return next(err);
+//     });
+// }
 
-function addIssue(req, res, next) {
-  db.any('SELECT * FROM whatever')
-    .then(function (data) {
-      res.status(200)
-        .json({
-          status: 'success',
-          data: data,
-          message: 'Retrieved all of whatever'
-        });
-    })
-    .catch(function (err) {
-      return next(err);
-    });
-}
+// function addIssue(req, res, next) {
+//   db.any('SELECT * FROM whatever')
+//     .then(function (data) {
+//       res.status(200)
+//         .json({
+//           status: 'success',
+//           data: data,
+//           message: 'Retrieved all of whatever'
+//         });
+//     })
+//     .catch(function (err) {
+//       return next(err);
+//     });
+// }
 
-function addPerson(req, res, next) {
-  db.any('SELECT * FROM whatever')
-    .then(function (data) {
-      res.status(200)
-        .json({
-          status: 'success',
-          data: data,
-          message: 'Retrieved all of whatever'
-        });
-    })
-    .catch(function (err) {
-      return next(err);
-    });
-}
+// function addPerson(req, res, next) {
+//   db.any('SELECT * FROM whatever')
+//     .then(function (data) {
+//       res.status(200)
+//         .json({
+//           status: 'success',
+//           data: data,
+//           message: 'Retrieved all of whatever'
+//         });
+//     })
+//     .catch(function (err) {
+//       return next(err);
+//     });
+// }
 
-function addMovie(req, res, next) {
-  db.any('SELECT * FROM whatever')
-    .then(function (data) {
-      res.status(200)
-        .json({
-          status: 'success',
-          data: data,
-          message: 'Retrieved all of whatever'
-        });
-    })
-    .catch(function (err) {
-      return next(err);
-    });
-}
+// function addMovie(req, res, next) {
+//   db.any('SELECT * FROM whatever')
+//     .then(function (data) {
+//       res.status(200)
+//         .json({
+//           status: 'success',
+//           data: data,
+//           message: 'Retrieved all of whatever'
+//         });
+//     })
+//     .catch(function (err) {
+//       return next(err);
+//     });
+// }
 
 function addPublisher(req, res, next) {
   var q = 'INSERT INTO characters (id, name, birth, deck, description, aliases, location_address, location_city, location_state, date_last_updated) VALUES(${id}, ${name}, ${birth}, ${deck}, ${description}, ${aliases}, ${location_address}, ${location_city}, ${location_state}, ${date_last_updated})')
@@ -482,92 +482,92 @@ function addPublisher(req, res, next) {
     });
 }
 
-function addSeries(req, res, next) {
-  db.any('SELECT * FROM whatever')
-    .then(function (data) {
-      res.status(200)
-        .json({
-          status: 'success',
-          data: data,
-          message: 'Retrieved all of whatever'
-        });
-    })
-    .catch(function (err) {
-      return next(err);
-    });
-}
+// function addSeries(req, res, next) {
+//   db.any('SELECT * FROM whatever')
+//     .then(function (data) {
+//       res.status(200)
+//         .json({
+//           status: 'success',
+//           data: data,
+//           message: 'Retrieved all of whatever'
+//         });
+//     })
+//     .catch(function (err) {
+//       return next(err);
+//     });
+// }
 
-function addStoryArc(req, res, next) {
-  db.any('SELECT * FROM whatever')
-    .then(function (data) {
-      res.status(200)
-        .json({
-          status: 'success',
-          data: data,
-          message: 'Retrieved all of whatever'
-        });
-    })
-    .catch(function (err) {
-      return next(err);
-    });
-}
+// function addStoryArc(req, res, next) {
+//   db.any('SELECT * FROM whatever')
+//     .then(function (data) {
+//       res.status(200)
+//         .json({
+//           status: 'success',
+//           data: data,
+//           message: 'Retrieved all of whatever'
+//         });
+//     })
+//     .catch(function (err) {
+//       return next(err);
+//     });
+// }
 
-function addTeam(req, res, next) {
-  db.any('SELECT * FROM whatever')
-    .then(function (data) {
-      res.status(200)
-        .json({
-          status: 'success',
-          data: data,
-          message: 'Retrieved all of whatever'
-        });
-    })
-    .catch(function (err) {
-      return next(err);
-    });
-}
+// function addTeam(req, res, next) {
+//   db.any('SELECT * FROM whatever')
+//     .then(function (data) {
+//       res.status(200)
+//         .json({
+//           status: 'success',
+//           data: data,
+//           message: 'Retrieved all of whatever'
+//         });
+//     })
+//     .catch(function (err) {
+//       return next(err);
+//     });
+// }
 
-function addType(req, res, next) {
-  db.any('SELECT * FROM whatever')
-    .then(function (data) {
-      res.status(200)
-        .json({
-          status: 'success',
-          data: data,
-          message: 'Retrieved all of whatever'
-        });
-    })
-    .catch(function (err) {
-      return next(err);
-    });
-}
+// function addType(req, res, next) {
+//   db.any('SELECT * FROM whatever')
+//     .then(function (data) {
+//       res.status(200)
+//         .json({
+//           status: 'success',
+//           data: data,
+//           message: 'Retrieved all of whatever'
+//         });
+//     })
+//     .catch(function (err) {
+//       return next(err);
+//     });
+// }
 
-function addVolume(req, res, next) {
-  db.any('SELECT * FROM whatever')
-    .then(function (data) {
-      res.status(200)
-        .json({
-          status: 'success',
-          data: data,
-          message: 'Retrieved all of whatever'
-        });
-    })
-    .catch(function (err) {
-      return next(err);
-    });
-}
+// function addVolume(req, res, next) {
+//   db.any('SELECT * FROM whatever')
+//     .then(function (data) {
+//       res.status(200)
+//         .json({
+//           status: 'success',
+//           data: data,
+//           message: 'Retrieved all of whatever'
+//         });
+//     })
+//     .catch(function (err) {
+//       return next(err);
+//     });
+// }
 
-function addImage(req, res, next) {
-  db.any('SELECT * FROM whatever')
-    .then(function (data) {
-      res.status(200)
-        .json({
-          status: 'success',
-          data: data,
-          message: 'Retrieved all of whatever'
-        });
-    })
-    .catch(function (err) {
-      return next(err);
-    });
-}
+// function addImage(req, res, next) {
+//   db.any('SELECT * FROM whatever')
+//     .then(function (data) {
+//       res.status(200)
+//         .json({
+//           status: 'success',
+//           data: data,
+//           message: 'Retrieved all of whatever'
+//         });
+//     })
+//     .catch(function (err) {
+//       return next(err);
+//     });
+// }
