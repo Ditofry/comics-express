@@ -9,13 +9,21 @@ var options = {
   promiseLib: require('bluebird')
 };
 
-var pgp = require('pg-promise');
-var db = pgp(process.env.DATABASE_URL || 'postgres://localhost:5432/comics_blog');
+var pgp = require('pg-promise')(options);
+// var db = pgp(process.env.DATABASE_URL || 'postgres://localhost:5432/comics_blog');
+var cn = {
+    host: 'localhost',
+    port: 5432,
+    database: 'comics_blog',
+    user: 'brandon'
+};
+
+var db = pgp(cn);
 
 module.exports = {
   // Basic Selections
   getTypeList: getTypeList,
-  getPowersList: getPowersList,
+  getCharacterPowers: getCharacterPowers,
   // Basic Selection and Projection
   getCharacterList: getCharacterList,
   getIssueList: getIssueList,
@@ -68,8 +76,31 @@ function getTypeList(req, res, next) {
     });
 }
 
-function getPowersList(req, res, next) {
-  db.any('SELECT * FROM whatever')
+function getCharacter(characterAttrs) {
+  var q = 'SELECT * FROM characters, p.name AS publisher_name'
+        	+ 'LEFT JOIN publishers AS p'
+        	+ 'ON p.id = characters.publisher_id'
+        	+ 'WHERE character.name = ${name}';
+  db.any(q, characterAttrs)
+    .then(function (data) {
+      res.status(200)
+        .json({
+          status: 'success',
+          data: data,
+          message: 'Retrieved Character'
+        });
+    })
+    .catch(function (err) {
+      return next(err);
+    });
+}
+
+function getCharacterPowers(characterAttrs) {
+  var q = 'SELECT name, description FROM powers AS p'
+        	+ 'JOIN character_powers AS cp'
+        	+	'ON cp.power_id = p.id'
+        	+	'AND cp.character_id = ${id}';
+  db.any(q, characterAttrs)
     .then(function (data) {
       res.status(200)
         .json({
@@ -263,14 +294,23 @@ function getIssueProbOfCharacterDeath(req, res, next) {
     });
 }
 
-function getAverageNumEnemies(req, res, next) {
-  db.any('SELECT * FROM whatever')
+function getAverageNumEnemies(characterAttrs) {
+  var q = 'SELECT AVG(num_enemies) '
+            + 'FROM ('
+            +	'SELECT COUNT(*) AS num_enemies '
+            +	'FROM characters '
+            +	'JOIN join_characters AS jc ON jc.join_reason = "enemies"'
+            +		'AND jc.join_entity = "characters"'
+            +		'AND jc.character_id = ${id}'
+            +	'JOIN characters AS c ON c.id = jc.entity_id'
+            + ') JoinEnemies';
+  db.any(q, characterAttrs)
     .then(function (data) {
       res.status(200)
         .json({
           status: 'success',
           data: data,
-          message: 'Retrieved all of whatever'
+          message: 'Average number of enemies by character'
         });
     })
     .catch(function (err) {
@@ -353,18 +393,21 @@ function getGentlemanRebels(req, res, next) {
     });
 }
 
-function addCharacter(req, res, next) {
-  db.any('SELECT * FROM whatever')
-    .then(function (data) {
-      res.status(200)
-        .json({
-          status: 'success',
-          data: data,
-          message: 'Retrieved all of whatever'
-        });
+function addCharacter(characterAttrs) {
+  // TODO: This isn't the best place for this concern, I don't think...
+  // I would like this function to just take an object and save it.  Time constraints ¯\_(ツ)_/¯
+  characterAttrs.first_appeared_in_issue = characterAttrs.first_appeared_in_issue ? characterAttrs.first_appeared_in_issue.id : 0;
+  characterAttrs.origin_id = characterAttrs.origin ? characterAttrs.origin.id : null;
+  characterAttrs.publisher_id = characterAttrs.publisher ? characterAttrs.publisher.id : null;
+
+  // I left this as a single line in clase you wanted to CP/Paste.  Unfortunately line breaks will break the interpreter
+  var q = "INSERT INTO characters (id, name, birth, count_of_issue_appearances, deck, description, gender, first_appeared_in_issue, origin_id, publisher_id, aliases, real_name, date_last_updated) VALUES(${id}, ${name}, ${birth}, ${count_of_issue_appearances}, ${deck}, ${description}, ${gender}, ${first_appeared_in_issue}, ${origin_id}, ${publisher_id}, ${aliases}, ${real_name}, ${date_last_updated})";
+  db.none(q, characterAttrs)
+    .then(function () {
+      console.log("added " + characterAttrs["name"] + " to database");
     })
-    .catch(function (err) {
-      return next(err);
+    .catch(function (error) {
+      console.log(error);
     });
 }
 
@@ -429,17 +472,13 @@ function addMovie(req, res, next) {
 }
 
 function addPublisher(req, res, next) {
-  db.any('SELECT * FROM whatever')
-    .then(function (data) {
-      res.status(200)
-        .json({
-          status: 'success',
-          data: data,
-          message: 'Retrieved all of whatever'
-        });
+  var q = 'INSERT INTO characters (id, name, birth, deck, description, aliases, location_address, location_city, location_state, date_last_updated) VALUES(${id}, ${name}, ${birth}, ${deck}, ${description}, ${aliases}, ${location_address}, ${location_city}, ${location_state}, ${date_last_updated})')
+  db.none(q, characterAttrs)
+    .then(function () {
+      console.log("added publisher " + characterAttrs["name"] + " to database");
     })
-    .catch(function (err) {
-      return next(err);
+    .catch(function (error) {
+      console.log(error);
     });
 }
 
